@@ -5,7 +5,7 @@ copyDirs:
   - admin
   - auth
   - site
-  - starter
+  - home
 copyFiles:
   - .gitignore
   - package.json

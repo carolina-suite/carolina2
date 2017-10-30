@@ -27,6 +27,24 @@ function newProject(args) {
         path.join(projectDir, templateConfig.copyDirs[i]));
     }
   }
+  if (templateConfig.hasOwnProperty('copyFiles')) {
+    for (var i = 0; i < templateConfig.copyFiles.length; ++i) {
+      fs.copySync(path.join(templateDir, templateConfig.copyFiles[i]),
+        path.join(projectDir, templateConfig.copyFiles[i]));
+    }
+  }
+  if (templateConfig.hasOwnProperty('emptyDirs')) {
+    for (var i = 0; i < templateConfig.emptyDirs.length; ++i) {
+      fs.mkdirSync(path.join(projectDir, templateConfig.emptyDirs[i]));
+    }
+  }
+  if (templateConfig.hasOwnProperty('renameFiles')) {
+    for (var i = 0; i < templateConfig.renameFiles.length; ++i) {
+      fs.copySync(path.join(projectDir, templateConfig.renameFiles[i].from),
+        path.join(projectDir, templateConfig.renameFiles[i].to));
+      fs.removeSync(path.join(projectDir, templateConfig.renameFiles[i].from));
+    }
+  }
 }
 
 module.exports = newProject;
