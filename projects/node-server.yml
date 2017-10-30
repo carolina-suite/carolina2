@@ -7,7 +7,7 @@ copyDirs:
   - site
   - home
 copyFiles:
-  - .gitignore
+  - gitignore.txt
   - package.json
   - README.md
 emptyDirs:
@@ -17,3 +17,5 @@ emptyDirs:
 renameFiles:
   - from: site/config/site.secret.sample.yml
     to: site/config/site.secret.yml
+  - from: gitignore.txt
+    to: .gitignore
