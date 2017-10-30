@@ -110,8 +110,6 @@ TEMPLATES["auth/password"] = `
 
   <h2 class="form-signin-heading">Update Password</h2>
 
-  <p>Don't have an account? Then please <a href='' @click.stop.prevent="emitRegister">sign up</a>.</p>
-
   <alert v-if="errorMessage" :message="errorMessage" :severity="'danger'"></alert>
 
   <label for="inputOldPassword" class="sr-only">Current Password</label>

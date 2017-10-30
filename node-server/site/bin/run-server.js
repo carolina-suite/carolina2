@@ -32,7 +32,9 @@ function runServer(args) {
   for (var i = 0; i < config.site.includedApps.length; ++i) {
     var app = Resolver.getApp(config.site.includedApps[i]);
     if (app.hasOwnProperty('router')) {
-      server.register(app.router, { prefix: '/' + config.site.includedApps[i] });
+      var mount = '/' + config.site.includedApps[i];
+      if (mount == '/starter') mount = '';
+      server.register(app.router, { prefix: mount });
     }
   }
 
