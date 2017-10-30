@@ -108,6 +108,19 @@ dropData.addArgument(['-q', '--query'], {
   help: "Local query to run from site/queries (only used if model specified)."
 });
 
+var dumpData = subs.addParser('dump-data', {
+  addHelp: true,
+  description: "Dumps all data into a JSON format. Use with '>' to push to file."
+});
+dumpData.addArgument('appName', {
+  action: 'store',
+  help: 'App to dump.'
+});
+dumpData.addArgument('modelName', {
+  action: 'store',
+  help: "Model to dump."
+});
+
 var args = parser.parseArgs();
 if (args.subcommand=='load-data') {
   var handler = require('./bin/load-data');
@@ -133,5 +146,9 @@ if (args.subcommand=='drop-data') {
   if (args.query)
     args.query = require(`../site/queries/${args.query}`);
   var handler = require('./bin/drop-data');
+  handler(args).then(()=>process.exit());
+}
+if (args.subcommand=='dump-data') {
+  var handler = require('./bin/dump-data');
   handler(args).then(()=>process.exit());
 }
