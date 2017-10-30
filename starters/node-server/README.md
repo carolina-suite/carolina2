@@ -68,6 +68,10 @@ For examples of most of this, view the auth app in detail.
 
 ## Existing Apps #
 
+* [admin](./admin/README.md): The admin app provides a CLI for viewing and altering data in the database.
+* [auth](./auth/README.md): The auth app provides a login and account management system.
+* starter: The starter app exposes a simple landing page.
+
 ## Library #
 
 ## Writing New Apps #

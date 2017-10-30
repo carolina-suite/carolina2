@@ -14,8 +14,6 @@ emptyDirs:
   - _static
   - _templates
   - _workspace
-deleteFiles:
-  - site/config/site.secret.yml
 renameFiles:
   - from: site/config/site.secret.sample.yml
     to: site/config/site.secret.yml
