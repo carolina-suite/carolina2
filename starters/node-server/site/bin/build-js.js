@@ -2,7 +2,6 @@
 var path = require('path');
 
 var fs = require('fs-extra');
-var Uglify = require('uglify-js2');
 var yaml = require('yamljs');
 
 var Resolver = require('../../_lib/resolver');

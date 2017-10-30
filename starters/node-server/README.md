@@ -10,6 +10,9 @@ dependencies.
 
 In order to use this project, you must have a mongodb server running.
 
+Before creating any users, you should edit `site/config/site.secret.config`
+and set your site's secret key to something long and random.
+
 The `auth` application comes with a fixture for some built in users, including
 an admin account `admin` with the password `admin123`. To install the fixtures,
 run the command:

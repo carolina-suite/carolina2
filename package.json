@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "carolina2": "carolina.js"
+    "carolina": "./bin/carolina.js"
   },
   "dependencies": {
     "argparse": "^1.0.9",
