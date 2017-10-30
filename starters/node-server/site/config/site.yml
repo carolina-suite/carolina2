@@ -11,7 +11,7 @@ includedApps:
   - site
   - admin
   - auth
-  - starter
+  - home
 language: en-us
 title: My Site
 tz: 'UTC'

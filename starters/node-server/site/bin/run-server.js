@@ -33,7 +33,7 @@ function runServer(args) {
     var app = Resolver.getApp(config.site.includedApps[i]);
     if (app.hasOwnProperty('router')) {
       var mount = '/' + config.site.includedApps[i];
-      if (mount == '/starter') mount = '';
+      if (mount == '/home') mount = '';
       server.register(app.router, { prefix: mount });
     }
   }
