@@ -1,0 +1,15 @@
+
+db:
+  host: localhost
+  port: 27017
+  name: carolina
+debug: true
+# if email is true, correct mailgun configuration must be site.secret.yml
+email: false
+includedApps:
+  - site
+  - admin
+  - auth
+language: en-us
+title: My Site
+tz: 'UTC'

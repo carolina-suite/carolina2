@@ -1,0 +1,24 @@
+<form class="form-signin" @submit.prevent="register">
+
+  <h2 class="form-signin-heading">Register</h2>
+
+  <alert v-if="successMessage" :message="successMessage" :severity="'success'"></alert>
+  
+  <p>Already have an account? <a href='' @click.stop.prevent="emitLogin">sign in</a>.</p>
+
+  <alert v-if="errorMessage" :message="errorMessage" :severity="'danger'"></alert>
+
+  <label for="inputUsername" class="sr-only">Username</label>
+  <input id="inputUsername" class="form-control" type="text" placeholder="Username" required autofocus v-model="username" />
+
+  <label for="inputEmail" class="sr-only">E-Mail Address (optional)</label>
+  <input id="inputEmail" class="form-control" type="email" placeholder="Email Address" autofocus v-model="email" />
+
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input id="inputPassword" class="form-control" type="password" placeholder="password" required autofocus v-model="password1" />
+
+  <label for="inputPassword2" class="sr-only">Confirm Password</label>
+  <input id="inputPassword2" class="form-control" type="password" placeholder="confirm password" required autofocus v-model="password2" />
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+</form>

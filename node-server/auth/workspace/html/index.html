@@ -1,0 +1,10 @@
+
+<div class="container">
+  <checking v-if="currentPage==pages.CHECKING" @nav="handleNav"></checking>
+  <login v-if="currentPage==pages.LOGIN" @nav="handleNav" @next="handleNext"></login>
+  <register v-if="currentPage==pages.REGISTER" @nav="handleNav"></register>
+  <profile v-if="currentPage==pages.PROFILE" @nav="handleNav"></profile>
+  <edit v-if="currentPage==pages.EDIT" @nav="handleNav"></edit>
+  <password v-if="currentPage==pages.PASSWORD" @nav="handleNav"></password>
+  <forgot v-if="currentPage==pages.FORGOT" @nav="handleNav"></forgot>
+</div>

@@ -1,0 +1,21 @@
+
+<form class="form-signin" @submit.prevent="update">
+
+  <h2 class="form-signin-heading">Edit Account Values</h2>
+
+  <alert v-if="errorMessage" :message="errorMessage" :severity="'danger'"></alert>
+
+  <label for="inputEmail" class="sr-only">Email Address</label>
+  <input id="inputEmail" class="form-control" type="email" placeholder="email@example.com" autofocus v-model="email" />
+
+  <label for="inputName" class="sr-only">Name</label>
+  <input id="inputName" class="form-control" type="text" placeholder="Your Name" v-model="name" />
+
+  <label for="inputImageUrl" class="sr-only">Image Url</label>
+  <input id="inputImageUrl" class="form-control" type="text" placeholder="http://example.com/image.png" v-model="imageUrl" />
+
+  
+
+  <button class="btn btn-lg btn-warning btn-block" type="submit">Update</button>
+  <a class="btn btn-lg btn-secondary btn-block" href='' @click.stop.prevent="emitProfile">Cancel</a>
+</form>

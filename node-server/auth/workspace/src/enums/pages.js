@@ -1,0 +1,10 @@
+
+PAGES = {
+  CHECKING: 0,
+  REGISTER: 1,
+  LOGIN: 2,
+  PROFILE: 3,
+  EDIT: 4,
+  PASSWORD: 5,
+  FORGOT: 6
+};

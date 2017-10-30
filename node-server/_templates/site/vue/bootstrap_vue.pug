@@ -1,0 +1,8 @@
+extends /site/bootstrap_base.pug
+
+block body
+  #app
+block append js
+  script(src="/static/site/js/vue.js")
+  script(src="/static/site/js/axios.min.js")
+  script(src="/static/" + appName + "/app.js")

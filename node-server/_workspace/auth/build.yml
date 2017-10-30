@@ -1,0 +1,32 @@
+
+jsBuilds:
+  main:
+    vueTemplates:
+      alert: site/html/alert.html
+      root: auth/html/index.html
+      checking: auth/html/checking.html
+      login: auth/html/login.html
+      register: auth/html/register.html
+      profile: auth/html/profile.html
+      edit: auth/html/edit.html
+      password: auth/html/password.html
+      forgot: auth/html/forgot.html
+    src:
+
+      - site/src/carolina.js
+
+      - auth/src/lib.js
+      - auth/src/enums/pages.js
+
+      - site/src/components/alert.js
+      - auth/src/components/checking.js
+      - auth/src/components/login.js
+      - auth/src/components/register.js
+      - auth/src/components/profile.js
+      - auth/src/components/edit.js
+      - auth/src/components/password.js
+      - auth/src/components/forgot.js
+
+      - auth/src/app.vue.js
+    reduce: true
+    out: app.js

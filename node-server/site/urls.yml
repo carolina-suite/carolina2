@@ -1,0 +1,10 @@
+
+
+- endpoint: /admin
+  handler: admin
+- endpoint: /accounts
+  handler: auth
+- endpoint: '/'
+  app: starter
+- endpoint: /static
+  handler: static

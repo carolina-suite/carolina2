@@ -1,0 +1,14 @@
+
+<form class="form-signin" @submit.prevent="reset">
+
+  <h2 class="form-signin-heading">Forgot Password</h2>
+
+  <alert v-if="successMessage" :message="successMessage" :severity="'info'"></alert>
+
+  <p>Go back and <a href='' @click.stop.prevent="emitLogin">sign in</a>.</p>
+
+  <label for="inputUsername" class="sr-only">Username</label>
+  <input id="inputUsername" class="form-control" type="text" placeholder="Username" required autofocus v-model="username" />
+
+  <button class="btn btn-lg btn-warning btn-block" type="submit">Reset</button>
+</form>

@@ -1,0 +1,8 @@
+<div v-bind:class="'alert alert-' + severity">
+  {{ message }}
+  <ul v-if="itemList">
+    <li v-for="item in itemList">{{ item }}</li>
+  </ul>
+
+  <p v-if="alertLink"><a v-bind:href="alertLink">{{ alertLinkTitle }}</a></p>
+</div>

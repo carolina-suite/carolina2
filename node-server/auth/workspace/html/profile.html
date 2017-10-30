@@ -1,0 +1,17 @@
+
+<div v-if="ready">
+
+  <h3>{{ profile.username }}</h3>
+
+  <p v-if="profile.isAdmin"><span class="badge badge-info">ADMIN ACCOUNT</span></p>
+
+  <img class="img img-rounded" v-if="profile.imageUrl" v-bind:src="profile.imageUrl" />
+
+  <p v-if="profile.name"><b>Name:</b> {{ profile.name }}</p>
+  <p v-if="profile.email"><b>E-Mail Address:</b> {{ profile.email }}</p>
+
+  <a class="btn btn-lg btn-info btn-block" href='' @click.stop.prevent="emitEdit">Update Info</a>
+  <a class="btn btn-lg btn-warning btn-block" href='' @click.stop.prevent="emitPassword">Change Password</a>
+  <a class="btn btn-lg btn-danger btn-block" href='' @click.stop.prevent="logout">Logout</a>
+</div>
+<p v-else>Fetching your data...</p>

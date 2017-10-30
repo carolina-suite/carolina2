@@ -1,0 +1,28 @@
+{
+  "name": "node-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "argparse": "^1.0.9",
+    "console.table": "^0.9.1",
+    "fastify": "^0.30.3",
+    "fastify-pug": "^1.1.0",
+    "fastify-static": "^0.3.0",
+    "fs-extra": "^4.0.2",
+    "jsonwebtoken": "^8.1.0",
+    "mailgun-js": "^0.13.1",
+    "mongoose": "^4.12.4",
+    "pow-mongoose-fixtures": "^0.3.0",
+    "rand-token": "^0.3.0",
+    "uglify-js": "^3.1.5",
+    "uglify-js2": "^2.1.11",
+    "underscore": "^1.8.3",
+    "yamljs": "^0.3.0"
+  }
+}

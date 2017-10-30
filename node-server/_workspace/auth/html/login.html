@@ -1,0 +1,18 @@
+
+<form class="form-signin" @submit.prevent="login">
+
+  <h2 class="form-signin-heading">Login</h2>
+
+  <p>Don't have an account? Then please <a href='' @click.stop.prevent="emitRegister">sign up</a>.</p>
+  <p>Forget your password? Then please <a href='' @click.stop.prevent="emitForgot">get it reset</a>.</p>
+
+  <alert v-if="errorMessage" :message="errorMessage" :severity="'danger'"></alert>
+
+  <label for="inputUsername" class="sr-only">Username</label>
+  <input id="inputUsername" class="form-control" type="text" placeholder="Username" required autofocus v-model="username" />
+
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input id="inputPassword" class="form-control" type="password" placeholder="password" required v-model="password" />
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+</form>
