@@ -36,7 +36,7 @@ async function listData(args) {
     }
   }
   catch (err) {
-    logger.admin.log('error', "Error dumping data.", { err: err });
+    logger.admin.log('error', "Error list data.", { err: err });
   }
 }
 

@@ -11,6 +11,7 @@ var userSchema = new mongoose.Schema({
   email: String,
   name: String,
   isAdmin: { type:Boolean, default: false },
+  groups: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Group' }],
   imageUrl: { type: String }
 });
 
@@ -27,6 +28,7 @@ userSchema.methods.checkPassword = function (password) {
   return this.password == hash;
 };
 userSchema.methods.generateJwtToken = function (secret) {
+
   var expirationDate = new Date();
   expirationDate.setDate(expirationDate.getDate() + 7);
 
@@ -35,6 +37,22 @@ userSchema.methods.generateJwtToken = function (secret) {
     expirationDate: expirationDate
   }, secret);
 };
+userSchema.methods.addGroups = async function(groupNames) {
+  var Group = require('./group');
+  for (var i = 0; i < groupNames.length; ++i) {
+    console.log(groupNames[i]);
+    var group = await Group.findOne({ name: groupNames[i] });
+    this.groups.push(group._id);
+  }
+}
+userSchema.methods.hasPermission = function(perm) {
+
+  for (var i = 0; i < this.groups.length; ++i) {
+    if (this.groups[i].hasPermission(perm)) return true;
+  }
+
+  return false;
+}
 
 var User = mongoose.model('User', userSchema);
 

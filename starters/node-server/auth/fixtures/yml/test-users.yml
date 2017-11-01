@@ -1,0 +1,106 @@
+
+- model:
+    app: auth
+    model: Group
+  fields:
+    name: admins
+    verboseName: Administators
+    permissions:
+      - name: canCreate
+      - name: canRead
+      - name: canUpdate
+      - name: canDelete
+- model:
+    app: auth
+    model: Group
+  fields:
+    name: mods
+    verboseName: Moderators
+    permissions:
+      - name: canRead
+      - name: canUpdate
+      - name: canDelete
+- model:
+    app: auth
+    model: Group
+  fields:
+    name: regulars
+    verboseName: Regular Users
+    permissions:
+      - name: canRead
+      - name: canUpdate
+- model:
+    app: auth
+    model: Group
+  fields:
+    name: readonly
+    verboseName: Read Only Users
+    permissions:
+      - name: canRead
+- model:
+    app: auth
+    model: User
+  fields:
+    username: admin
+    isAdmin: true
+  functionFields:
+    - functionName: setPassword
+      args:
+      - admin123
+    - functionName: addGroups
+      args:
+        - ['admins']
+- model:
+    app: auth
+    model: User
+  fields:
+    username: applejack
+  functionFields:
+    - functionName: setPassword
+      args:
+        - orange
+- model:
+    app: auth
+    model: User
+  fields:
+    username: pinkiepie
+  functionFields:
+    - functionName: setPassword
+      args:
+        - pink
+- model:
+    app: auth
+    model: User
+  fields:
+    username: twilightsparkle
+  functionFields:
+    - functionName: setPassword
+      args:
+        - purple
+- model:
+    app: auth
+    model: User
+  fields:
+    username: rarity
+  functionFields:
+    - functionName: setPassword
+      args:
+        - white
+- model:
+    app: auth
+    model: User
+  fields:
+    username: rainbowdash
+  functionFields:
+    - functionName: setPassword
+      args:
+        - blue
+- model:
+    app: auth
+    model: User
+  fields:
+    username: fluttershy
+  functionFields:
+    - functionName: setPassword
+      args:
+        - yellow
