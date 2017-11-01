@@ -13,6 +13,7 @@ var Resolver = require('../../_lib/resolver');
 
 var config = require('../config');
 var db = require('../db');
+var logger = require('../logger');
 
 function runServer(args) {
 
@@ -38,9 +39,13 @@ function runServer(args) {
     }
   }
 
+  server.addHook('preHandler', function(request, reply, next) {
+    logger.site.log('verbose', `${request.req.method} ${request.req.url} from ${request.req.socket.remoteFamily} ${request.req.socket.remoteAddress}:${request.req.socket.remotePort}.`);
+    next();
+  })
   server.listen(args.port, function(err) {
     if (err) throw err;
-    console.log(`Server listening on port ${args.port}.`);
+    logger.site.log('info', `Server listening on port ${args.port}.`);
   });
 }
 module.exports = runServer;

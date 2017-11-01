@@ -21,6 +21,8 @@
     "pow-mongoose-fixtures": "^0.3.0",
     "rand-token": "^0.3.0",
     "underscore": "^1.8.3",
+    "winston": "^2.4.0",
+    "winston-mongodb": "^3.0.1",
     "yamljs": "^0.3.0"
   }
 }

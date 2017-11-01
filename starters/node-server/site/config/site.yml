@@ -13,5 +13,10 @@ includedApps:
   - auth
   - home
 language: en-us
+logging:
+  # npm log levels: error, warn, info, verbose, debug, silly
+  consoleLogLevel: silly
+  dbLogLevel: info
+  fileLogLevel: verbose
 title: My Site
 tz: 'UTC'

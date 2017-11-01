@@ -3,6 +3,7 @@ require('console.table');
 
 var Resolver = require('../../_lib/resolver');
 var db = require('../../site/db');
+var logger = require('../../site/logger');
 
 async function listData(args) {
   try {
@@ -13,7 +14,9 @@ async function listData(args) {
     console.log(JSON.stringify(jsonData));
 
   }
-  catch (err) { console.log(err); }
+  catch (err) {
+    logger.admin.log('error', "Error dumping data.", { err: err });
+  }
 }
 
 module.exports = listData;

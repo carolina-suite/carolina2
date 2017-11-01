@@ -1,11 +1,13 @@
 
 var config = require('../../../site/config');
+var logger = require('../../../site/logger');
 
 var User = require('../../models/user');
 
 async function login(request, reply) {
 
   if (!request.body.hasOwnProperty('username')) {
+    logger.auth.log('verbose', "Request rejected. No username provided.");
     reply.status(401).send({
       success: false,
       message: "Username required."
@@ -28,8 +30,11 @@ async function login(request, reply) {
       emailManager.sendEmail(user.email, config.auth.passwordEmailSubject, config.auth.passwordEmailText + '\n' + creds);
     }
   }
-  catch(err) {}
+  catch(err) {
+    logger.auth.log('error', "Error reseting user password.", { err: err });
+  }
 
+  logger.auth.log('verbose', `Password reset for username ${request.body.username}.`);
   return reply.send({
     success: true,
     message: "If you had a valid e-mail on file, a new password was sent to you. Otherwise, you're screwed."

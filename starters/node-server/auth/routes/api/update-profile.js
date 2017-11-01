@@ -1,5 +1,6 @@
 
 var config = require('../../../site/config');
+var logger = require('../../../site/logger');
 
 async function updateProfile(request, reply) {
 
@@ -9,7 +10,8 @@ async function updateProfile(request, reply) {
   if (request.body.hasOwnProperty('imageUrl'))
     user.imageUrl = request.body.imageUrl;
   await user.save();
-  
+  logger.auth.log('info', `Profile for ${user.username} updated.`);
+
   return reply.send({ success: true });
 }
 

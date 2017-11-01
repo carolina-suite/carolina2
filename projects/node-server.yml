@@ -11,6 +11,7 @@ copyFiles:
   - package.json
   - README.md
 emptyDirs:
+  - _logs
   - _static
   - _templates
   - _workspace

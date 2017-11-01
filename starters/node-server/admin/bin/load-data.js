@@ -1,8 +1,10 @@
 
 var path = require('path');
 
-var db = require('../../site/db');
 var Resolver = require('../../_lib/resolver');
+
+var db = require('../../site/db');
+var logger = require('../../site/logger');
 
 async function loadData(args) {
 
@@ -21,9 +23,9 @@ async function loadData(args) {
         obj[functionField.functionName].apply(obj, functionField.args);
       }
     }
-    
+
     await obj.save();
-    console.log(obj);
+    logger.admin.log('info', `New ${entry.model.app}.models.${entry.model.model} (${obj._id}) saved.`);
   }
 }
 
