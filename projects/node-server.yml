@@ -1,5 +1,7 @@
 
 dir: node-server
+extensions:
+  console_bot: extensions/node-server/console_bot
 copyDirs:
   - _lib
   - admin

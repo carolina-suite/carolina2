@@ -1,0 +1,16 @@
+
+dir: static-site
+copyDirs:
+  - lib
+  - projects
+  - ref
+  - themes
+copyFiles:
+  - gitignore.txt
+  - package.json
+  - README.md
+emptyDirs:
+  - out
+renameFiles:
+  - from: gitignore.txt
+    to: .gitignore

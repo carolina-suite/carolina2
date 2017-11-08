@@ -23,8 +23,12 @@ newProject.addArgument('projectName', {
   addHelp: true,
   help: "Name of the project to create."
 });
+newProject.addArgument('addons', {
+  addHelp: true,
+  nargs: '*'
+});
 
 var args = parser.parseArgs();
 if (args.sub=='new') {
-  require('./new-project')(args);
+  require('./new-project')(args, true);
 }

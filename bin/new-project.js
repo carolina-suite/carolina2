@@ -4,7 +4,7 @@ var path = require('path');
 var fs = require('fs-extra');
 var yaml = require('yamljs');
 
-function newProject(args) {
+function newProject(args, root) {
 
   var templateFile = path.join(__dirname, '..', 'projects', args.templateName + '.yml')
   var templateConfig = null;
@@ -16,10 +16,18 @@ function newProject(args) {
     throw "TemplateNotFound";
   }
 
-  var templateDir = path.join(__dirname, '..', 'starters', templateConfig.dir);
+  var templateDir = null;
+
+  if (root)
+    templateDir = path.join(__dirname, '..', 'starters', templateConfig.dir);
+  else
+    templateDir = args.rootTemplateDir
+
   var projectDir = path.join(process.cwd(), args.projectName);
 
-  fs.mkdirSync(projectDir);
+  if (root) {
+    fs.mkdirSync(projectDir);
+  }
 
   if (templateConfig.hasOwnProperty('copyDirs')) {
     for (var i = 0; i < templateConfig.copyDirs.length; ++i) {
@@ -44,6 +52,21 @@ function newProject(args) {
         path.join(projectDir, templateConfig.renameFiles[i].to));
       fs.removeSync(path.join(projectDir, templateConfig.renameFiles[i].from));
     }
+  }
+
+  for (var i = 0; i < args.addons.length; ++i) {
+    if (templateConfig.hasOwnProperty('extensions')) {
+      if (templateConfig.extensions.hasOwnProperty(args.addons[i])) {
+        newProject({
+          addons: [],
+          projectName: args.projectName,
+          rootTemplateDir: templateDir,
+          templateName: templateConfig.extensions[args.addons[i]]
+        });
+      }
+      else console.log(`No extension ${args.addons[i]} available.`);
+    }
+    else console.log(`No extension ${args.addons[i]} available.`);
   }
 }
 
