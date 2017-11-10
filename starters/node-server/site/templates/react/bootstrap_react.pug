@@ -1,0 +1,12 @@
+extends /site/bootstrap_base.pug
+
+block append css
+  link(
+    href="/static/" + appName + "/react/static/css/main.css"
+    rel="stylesheet"
+  )
+
+block body
+  #root
+block append js
+  script(src="/static/" + appName + "/react/static/js/main.js")
