@@ -1,3 +1,4 @@
 
+**/_log
 **/*.secret.yml
 **/node_modules/

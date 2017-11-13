@@ -31,15 +31,15 @@ mixin contentPost(post, isSingle)
     .entry-content
       
       if !isSingle
+        
         div!= post.partialText
+        
+        br
+        
+        p
+          a(href=post.permalink) Continue reading...
       else
         div!= post.text
-      
-      br
-      br
-      
-      p
-        a(href=post.permalink) Continue reading...
         
     if isSingle && (post.categories || post.tags)
       span.cat-tags-links

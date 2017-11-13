@@ -35,8 +35,12 @@ if (fs.existsSync(path.join(projectDir, 'replacements.js'))) {
   replacements = require(path.join(projectDir, 'replacements'));
 }
 
-if (fs.existsSync(outputDir)) fs.removeSync(outputDir);
-fs.mkdirSync(outputDir);
+if (!fs.existsSync(outputDir))
+  fs.mkdirSync(outputDir);
+
+if (projectConfig.hasOwnProperty('CNAME')) {
+  fs.writeFileSync(path.join(outputDir, 'CNAME'), projectConfig.CNAME);
+}
 
 // gather categories
 var categories = {};
@@ -277,7 +281,7 @@ for (var i = 0; i < posts.length; ++i) {
 }
 
 // copy assets from theme and project
-fs.mkdirSync(path.join(outputDir, 'theme'));
+fs.ensureDirSync(path.join(outputDir, 'theme'));
 fs.copySync(path.join(themeDir, 'assets'),
   path.join(outputDir, 'theme/assets'));
 if (fs.existsSync(path.join(projectDir, 'assets'))) {
@@ -295,8 +299,8 @@ allData.categoryArchives = categoryArchives;
 allData.tagArchives = tagArchives;
 
 // Create paginated blog posts
-fs.mkdirSync(path.join(outputDir, 'posts'));
-fs.mkdirSync(path.join(outputDir, 'posts', 'page'));
+fs.ensureDirSync(path.join(outputDir, 'posts'));
+fs.ensureDirSync(path.join(outputDir, 'posts', 'page'));
 
 // build posts pages
 for (var i = 1; postPages.hasOwnProperty(i); ++i) {

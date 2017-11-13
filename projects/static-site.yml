@@ -7,6 +7,7 @@ copyDirs:
   - themes
 copyFiles:
   - gitignore.txt
+  - build.js
   - package.json
   - README.md
 emptyDirs:
